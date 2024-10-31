@@ -12,7 +12,11 @@ return {
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.motion.vim-matchup" },
   { import = "astrocommunity.test.nvim-coverage" },
-  { import = "astrocommunity.test.vim-test" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
   { import = "astrocommunity.recipes.vscode-icons" },
+  { import = "astrocommunity.test.vim-test" },
+  {
+    "vim-test/vim-test",
+    config = function() vim.g["test#python#runner"] = "pytest" end,
+  },
 }
