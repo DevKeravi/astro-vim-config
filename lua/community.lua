@@ -14,4 +14,5 @@ return {
   { import = "astrocommunity.test.nvim-coverage" },
   { import = "astrocommunity.test.vim-test" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
+  { import = "astrocommunity.recipes.vscode-icons" },
 }
