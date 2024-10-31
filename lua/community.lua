@@ -5,7 +5,13 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.colorscheme.dracula-nvim" },
+  { import = "astrocommunity.scrolling.vim-smoothie" },
+  { import = "astrocommunity.code-runner.vim-slime" },
+  { import = "astrocommunity.editing-support.vim-visual-multi" },
+  { import = "astrocommunity.bars-and-lines.vim-illuminate" },
+  { import = "astrocommunity.motion.vim-matchup" },
+  { import = "astrocommunity.test.nvim-coverage" },
+  { import = "astrocommunity.test.vim-test" },
+  { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
 }
