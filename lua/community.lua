@@ -6,6 +6,7 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.colorscheme.dracula-nvim" },
+  { import = "astrocommunity.colorscheme.github-nvim-theme" },
   { import = "astrocommunity.scrolling.vim-smoothie" },
   { import = "astrocommunity.code-runner.vim-slime" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
@@ -14,6 +15,7 @@ return {
   { import = "astrocommunity.test.nvim-coverage" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
   { import = "astrocommunity.recipes.vscode-icons" },
+  { import = "astrocommunity.editing-support.multicursors-nvim" },
   { import = "astrocommunity.test.vim-test" },
   {
     "vim-test/vim-test",
