@@ -12,7 +12,6 @@ return {
   { import = "astrocommunity.code-runner.vim-slime" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
-  { import = "astrocommunity.bars-and-lines.feline-nvim" },
   { import = "astrocommunity.motion.vim-matchup" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
   { import = "astrocommunity.recipes.vscode-icons" },
