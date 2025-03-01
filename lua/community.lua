@@ -5,9 +5,10 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.dracula-nvim" },
   { import = "astrocommunity.colorscheme.rose-pine" },
-  { import = "astrocommunity.colorscheme.github-nvim-theme" },
   { import = "astrocommunity.scrolling.vim-smoothie" },
   { import = "astrocommunity.code-runner.vim-slime" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
