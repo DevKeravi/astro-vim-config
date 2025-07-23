@@ -16,7 +16,6 @@ return {
   { import = "astrocommunity.motion.vim-matchup" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
   { import = "astrocommunity.recipes.vscode-icons" },
-  { import = "astrocommunity.editing-support.multicursors-nvim" },
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.test.nvim-coverage" },
   { import = "astrocommunity.test.vim-test" },
@@ -27,60 +26,89 @@ return {
     config = function() vim.g["test#python#runner"] = "pytest" end,
   },
   {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = false,
-    version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
-    opts = {
-      -- add any opts here
-      -- for example
-      provider = "openai",
-      openai = {
-        endpoint = "https://api.openai.com/v1",
-        model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-        timeout = 30000, -- timeout in milliseconds
-        temperature = 0, -- adjust if needed
-        max_tokens = 4096,
-      },
-    },
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    build = "make",
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+  "greggh/claude-code.nvim",
     dependencies = {
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      --- The below dependencies are optional,
-      "echasnovski/mini.pick", -- for file_selector provider mini.pick
-      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-      "ibhagwan/fzf-lua", -- for file_selector provider fzf
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      {
-        -- support for image pasting
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          -- recommended settings
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            -- required for Windows users
-            use_absolute_path = true,
-          },
-        },
-      },
-      {
-        -- Make sure to set this up properly if you have lazy=true
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
+      "nvim-lua/plenary.nvim", -- Required for git operations
     },
+    config = function()
+      require("claude-code").setup()
+    end
+  },
+  {
+  'akinsho/flutter-tools.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+        config = function()
+      require("flutter-tools").setup {
+        ui = {
+          border = "rounded",
+          notification_style = "nvim-notify",
+        },
+        decorations = {
+          statusline = {
+            app_version = false,
+            device = true,
+          }
+        },
+        debugger = {
+          enabled = true,
+          run_via_dap = true,
+          register_configurations = function(paths)
+            require("dap").configurations.dart = {
+              {
+                type = "dart",
+                request = "launch",
+                name = "Launch flutter",
+                dartSdkPath = paths.dart_sdk,
+                flutterSdkPath = paths.flutter_sdk,
+                program = "/Users/demian/workspace/safetysnap/safetysnap-app/lib/main.dart",
+                cwd = "/Users/demian/workspace/safetysnap/safetysnap-app/",
+              }
+            }
+          end,
+        },
+        flutter_path = "/Users/demian/workspace/flutter/bin/flutter",
+        fvm = false, -- FVM 사용시 true로 변경
+        widget_guides = {
+          enabled = true,
+        },
+        closing_tags = {
+          highlight = "ErrorMsg",
+          prefix = "//",
+          enabled = true
+        },
+        dev_log = {
+          enabled = true,
+          open_cmd = "tabedit",
+        },
+        lsp = {
+          color = {
+            enabled = true,
+            background = false,
+            virtual_text = true,
+            virtual_text_str = "■",
+          },
+          settings = {
+            showTodos = true,
+            completeFunctionCalls = true,
+            analysisExcludedFolders = {
+              vim.fn.expand("/Users/demian/.pub-cache"),
+            },
+            renameFilesWithClasses = "prompt",
+            enableSnippets = true,
+          }
+        }
+      }
+    end,
+  },
+  {
+  "akinsho/pubspec-assist.nvim",
+    ft = "yaml",
+    event = "BufEnter pubspec.yaml",
+    config = function()
+      require("pubspec-assist").setup()
+    end,
   }
 }
