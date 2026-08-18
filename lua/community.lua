@@ -16,11 +16,9 @@ return {
   { import = "astrocommunity.motion.vim-matchup" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
   { import = "astrocommunity.recipes.vscode-icons" },
-  { import = "astrocommunity.editing-support.multicursors-nvim" },
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.test.nvim-coverage" },
   { import = "astrocommunity.test.vim-test" },
-  { import = "astrocommunity.note-taking.neorg" },
   { import = "astrocommunity.completion.avante-nvim" },
   {
     "vim-test/vim-test",
