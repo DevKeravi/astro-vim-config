@@ -20,7 +20,6 @@ return {
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.test.nvim-coverage" },
   { import = "astrocommunity.test.vim-test" },
-  { import = "astrocommunity.completion.avante-nvim" },
   {
     "vim-test/vim-test",
     config = function() vim.g["test#python#runner"] = "pytest" end,
